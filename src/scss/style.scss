@@ -1,0 +1,16 @@
+/*
+Theme Name: rgbform
+Description: Test theme
+Version: 1.0
+Author: Firstbit
+*/
+
+@import 'helpers/variables';
+@import 'helpers/mixins';
+@import 'helpers/normalize';
+@import 'helpers/fonts';
+
+@import 'common/common';
+
+@import 'pages/home';
+@import 'pages/404';

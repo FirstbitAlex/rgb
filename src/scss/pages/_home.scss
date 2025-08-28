@@ -1,0 +1,350 @@
+.page {
+	&__wrap {
+		display: flex;
+		column-gap: 10px;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 1100px;
+
+		@include lg {
+			width: 400px;
+		}
+
+		@include sm {
+			width: 320px;
+		}
+
+		.side {
+			&__wrap {
+				position: relative;
+				padding: 0 40px;
+				width: 690px;
+
+				@include lg {
+					display: none;
+				}
+
+				.bg-svg {
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+					width: 585px;
+					height: 585px;
+				}
+			}
+
+			&__slogan {
+				position: absolute;
+				top: 50%;
+				transform: translateY(-50%);
+
+				font-weight: 600;
+				font-size: 48px;
+				line-height: 130%;
+				letter-spacing: 0;
+			}
+
+			&__photo-big {
+				position: absolute;
+				left: 122px;
+				top: 50%;
+				transform: translateY(-320px);
+				width: 114px;
+				height: 114px;
+				border-radius: 50%;
+			}
+
+			&__photo-small {
+				position: absolute;
+				left: 484px;
+				top: 50%;
+				transform: translateY(-220px);
+				width: 86px;
+				height: 86px;
+				border-radius: 50%;
+			}
+		}
+
+		.form-wrap {
+			position: relative;
+			padding: 30px;
+			width: 400px;
+			background-color: $white;
+			border-radius: 40px;
+			border: 1px solid $border;
+
+			@include sm {
+				width: 320px;
+			}
+
+			&__title {
+				font-weight: 600;
+				font-size: 22px;
+				line-height: 119%;
+				letter-spacing: 0;
+				text-align: center;
+			}
+
+			#lead-form {
+				display: flex;
+				flex-direction: column;
+				row-gap: 12px;
+				position: relative;
+				margin-top: 30px;
+
+				label {
+					position: relative;
+					min-height: 102px;
+					font-weight: 500;
+					font-size: 16px;
+					line-height: 140%;
+					letter-spacing: 0;
+				}
+
+				.form-control-wrap {
+					display: block;
+					margin-top: 8px;
+				}
+
+				.form-control {
+					position: relative;
+					padding: 13px 18px 10px;
+					width: 100%;
+					border-radius: 8px;
+					border: 1px solid $border-dark;
+
+					font-family: $itm;
+					font-weight: 500;
+					font-size: 15px;
+					line-height: 150%;
+					letter-spacing: 0;
+					color: $black-lite;
+
+					&.iti__tel-input {
+						padding-left: 50px;
+					}
+
+					&::placeholder {
+						color: $border-dark;
+					}
+
+					&.is-invalid {
+						border-color: $red-border;
+					}
+				}
+
+				.textarea-input {
+					height: 125px;
+					resize: none;
+				}
+
+				.validation-error {
+					position: relative;
+					margin-top: 5px;
+					font-weight: 500;
+					font-size: 11px;
+					line-height: 150%;
+					letter-spacing: 0;
+					color: $red;
+				}
+
+				.form-spinner {
+					position: absolute;
+					bottom: 10px;
+					background-color: $yellow;
+					opacity: 1;
+
+					&::before {
+						background-color: $red-lite;
+					}
+				}
+
+				.submit-btn {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					column-gap: 10px;
+					position: relative;
+					margin-top: 10px;
+					font-weight: 400;
+					font-size: 15px;
+					line-height: 140%;
+					letter-spacing: 0;
+					color: $white;
+					border: none;
+					background-color: $red-lite;
+					cursor: pointer;
+					transition: opacity 0.3s ease;
+
+					.dot {
+						position: relative;
+						width: 8px;
+						height: 8px;
+						border-radius: 50%;
+						background-color: $yellow;
+					}
+
+					.spinner {
+						display: none;
+						position: absolute;
+						left: 20px;
+						top: 7px;
+						width: 30px;
+						aspect-ratio: 1;
+						border-radius: 50%;
+						background:
+							radial-gradient(farthest-side, $yellow 94%, #0000) top/6px 6px no-repeat,
+							conic-gradient(#0000 30%, $yellow);
+						-webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 6px), #000 0);
+						animation: spin 1s infinite linear;
+					}
+
+					@keyframes spin {
+						100% {
+							transform: rotate(1turn)
+						}
+					}
+
+					&.is-sending {
+						opacity: 0.7;
+						cursor: not-allowed;
+
+						.spinner {
+							display: block;
+						}
+					}
+
+					&:hover:not(.is-sending) {
+						opacity: 0.9;
+					}
+				}
+			}
+
+			&__disclamer {
+				position: relative;
+				margin: 16px auto 0;
+				width: 210px;
+				font-weight: 400;
+				font-size: 12px;
+				line-height: 140%;
+				letter-spacing: 0;
+				text-align: center;
+				color: $black-lite;
+
+				a {
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+}
+
+.popup {
+	&__wrap {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		column-gap: 10px;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		padding: 55px 144px;
+		transform: translate(-50%, -50%);
+		border-radius: 18px;
+		background-color: $white;
+
+		@include sm {
+			padding: 55px 100px;
+		}
+
+		@include xs {
+			padding: 55px 28px;
+		}
+	}
+
+	&__close-wrap {
+		display: flex;
+		align-items: center;
+		column-gap: 10px;
+		position: absolute;
+		top: 20px;
+		right: 22px;
+		cursor: pointer;
+	}
+
+	&__close-text {
+		position: relative;
+		font-weight: 500;
+		font-size: 13px;
+		line-height: 140%;
+		letter-spacing: 0;
+		color: $grey;
+	}
+
+	&__close-ico {
+		position: relative;
+		width: 15px;
+		height: 14px;
+	}
+
+	&__ico {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+		width: 62px;
+		height: 62px;
+		border-radius: 12px;
+		background-color: $blue-lite;
+	}
+
+	&__success-ico {
+		position: relative;
+		width: 34px;
+		height: 34px;
+	}
+
+	&__status {
+		position: relative;
+		margin-top: 10px;
+		font-weight: 500;
+		font-size: 15px;
+		line-height: 140%;
+		letter-spacing: 0;
+		color: $black-success;
+	}
+
+	&__thanks {
+		position: relative;
+		margin-top: 30px;
+		width: 264px;
+		font-weight: 600;
+		font-size: 40px;
+		line-height: 124%;
+		letter-spacing: 0;
+		text-align: center;
+
+		@include sm {
+			font-size: 30px;
+		}
+	}
+}
+
+.iti {
+	width: 100%;
+}
+
+.block-hidden {
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.block-visible {
+	opacity: 1;
+	visibility: visible;
+	transition: opacity 0.3s ease, visibility 0.3s ease;
+}

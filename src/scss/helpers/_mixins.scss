@@ -1,0 +1,41 @@
+$xl: 1919;
+$lg: 1365;
+$md: 1023;
+$sm: 767;
+$xs: 575;
+
+@mixin width($width) {
+	@media (max-width: #{$width}px) {
+		@content;
+	}
+}
+
+@mixin xl {
+	@include width($xl) {
+		@content;
+	}
+}
+
+@mixin lg {
+	@include width($lg) {
+		@content;
+	}
+}
+
+@mixin md {
+	@include width($md) {
+		@content;
+	}
+}
+
+@mixin sm {
+	@include width($sm) {
+		@content;
+	}
+}
+
+@mixin xs {
+	@include width($xs) {
+		@content;
+	}
+}
